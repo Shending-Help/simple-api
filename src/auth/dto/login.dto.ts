@@ -1,5 +1,5 @@
-export class User {
-  id: string;
+export class LoginDto {
   username: string;
+
   password: string;
 }

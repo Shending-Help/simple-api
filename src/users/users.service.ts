@@ -21,6 +21,11 @@ export class UsersService {
     return await this.userModel.findById(id).exec();
   }
 
+  async findOneByUsername(username: string): Promise<User> {
+    //find user by username
+    return await this.userModel.findOne({ username: username }).exec();
+  }
+
   async update(id: string, updateUserDto: UpdateUserDto): Promise<User> {
     return await this.userModel.findByIdAndUpdate(id, updateUserDto);
   }
