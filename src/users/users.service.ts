@@ -44,4 +44,10 @@ export class UsersService {
       $push: { addressBook: { name: name, address: address, phone: phone } },
     });
   }
+
+  async removeContact(id: string, name: string): Promise<User> {
+    return await this.userModel.findByIdAndUpdate(id, {
+      $pull: { addressBook: { name: name } },
+    });
+  }
 }

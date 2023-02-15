@@ -62,4 +62,10 @@ export class UsersController {
       body.address,
     );
   }
+  //this is the function that removes a contact from the address book by name and userId
+  @UseGuards(JwtAuthGuard)
+  @Patch(':id/removecontact')
+  removeContactByName(@Param('id') id: string, @Body() body: any) {
+    return this.usersService.removeContact(id, body.name);
+  }
 }
