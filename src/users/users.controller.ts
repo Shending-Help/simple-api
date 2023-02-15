@@ -51,4 +51,15 @@ export class UsersController {
   remove(@Param('id') id: string) {
     return this.usersService.remove(id);
   }
+
+  @UseGuards(JwtAuthGuard)
+  @Patch(':id/addcontact')
+  addContact(@Param('id') id: string, @Body() body: any) {
+    return this.usersService.addContact(
+      id,
+      body.phone,
+      body.name,
+      body.address,
+    );
+  }
 }
